@@ -9,9 +9,17 @@ import SwiftUI
 
 struct HomeView : View {
     
+    @StateObject var homeViewModel = HomeViewModel()
+    
     var body: some View {
         
-        Text("Hello This is a Home Screen")
+        TabView {
+            CharacterView()
+                .tabItem {
+                    Image(systemName: "person.3.fill")
+                    Text ("Characters")
+                }.environmentObject(self.homeViewModel)
+        }
     }
 }
 
