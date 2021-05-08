@@ -17,6 +17,7 @@
 		B16B5A3D264703AD00F7D18C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A3C264703AD00F7D18C /* HomeViewModel.swift */; };
 		B16B5A40264707E800F7D18C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A3F264707E800F7D18C /* Character.swift */; };
 		B16B5A4326470D7100F7D18C /* CharacterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4226470D7100F7D18C /* CharacterData.swift */; };
+		B16B5A4526470EA200F7D18C /* CharacterResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4426470EA200F7D18C /* CharacterResults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B16B5A3C264703AD00F7D18C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B16B5A3F264707E800F7D18C /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		B16B5A4226470D7100F7D18C /* CharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterData.swift; sourceTree = "<group>"; };
+		B16B5A4426470EA200F7D18C /* CharacterResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			children = (
 				B16B5A3F264707E800F7D18C /* Character.swift */,
 				B16B5A4226470D7100F7D18C /* CharacterData.swift */,
+				B16B5A4426470EA200F7D18C /* CharacterResults.swift */,
 			);
 			path = Character;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B16B5A4526470EA200F7D18C /* CharacterResults.swift in Sources */,
 				B16B5A4326470D7100F7D18C /* CharacterData.swift in Sources */,
 				B16B5A3A264701DD00F7D18C /* Constants .swift in Sources */,
 				B16B5A252647019500F7D18C /* AppDelegate.swift in Sources */,
