@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Character {
+struct Character : Identifiable, Codable {
     var id : Int
     var name: String
     var description: String
