@@ -20,6 +20,7 @@
 		B16B5A4526470EA200F7D18C /* CharacterResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4426470EA200F7D18C /* CharacterResults.swift */; };
 		B16B5A482647122000F7D18C /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A472647122000F7D18C /* Comic.swift */; };
 		B16B5A4A2647134300F7D18C /* ComicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A492647134300F7D18C /* ComicData.swift */; };
+		B16B5A4D2647142D00F7D18C /* ComicResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4C2647142D00F7D18C /* ComicResults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		B16B5A4426470EA200F7D18C /* CharacterResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResults.swift; sourceTree = "<group>"; };
 		B16B5A472647122000F7D18C /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		B16B5A492647134300F7D18C /* ComicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicData.swift; sourceTree = "<group>"; };
+		B16B5A4C2647142D00F7D18C /* ComicResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			children = (
 				B16B5A472647122000F7D18C /* Comic.swift */,
 				B16B5A492647134300F7D18C /* ComicData.swift */,
+				B16B5A4C2647142D00F7D18C /* ComicResults.swift */,
 			);
 			path = Comic;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				B16B5A3A264701DD00F7D18C /* Constants .swift in Sources */,
 				B16B5A4A2647134300F7D18C /* ComicData.swift in Sources */,
 				B16B5A252647019500F7D18C /* AppDelegate.swift in Sources */,
+				B16B5A4D2647142D00F7D18C /* ComicResults.swift in Sources */,
 				B16B5A272647019500F7D18C /* SceneDelegate.swift in Sources */,
 				B16B5A40264707E800F7D18C /* Character.swift in Sources */,
 				B16B5A3D264703AD00F7D18C /* HomeViewModel.swift in Sources */,
