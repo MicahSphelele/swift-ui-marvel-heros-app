@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,8 @@
 		B16B5A4A2647134300F7D18C /* ComicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A492647134300F7D18C /* ComicData.swift */; };
 		B16B5A4D2647142D00F7D18C /* ComicResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4C2647142D00F7D18C /* ComicResults.swift */; };
 		B16B5A50264714FE00F7D18C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4F264714FE00F7D18C /* HomeView.swift */; };
+		B16B5A53264730DD00F7D18C /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A52264730DD00F7D18C /* CharacterView.swift */; };
+		B16B5A56264732E000F7D18C /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B16B5A55264732E000F7D18C /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,7 @@
 		B16B5A492647134300F7D18C /* ComicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicData.swift; sourceTree = "<group>"; };
 		B16B5A4C2647142D00F7D18C /* ComicResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicResults.swift; sourceTree = "<group>"; };
 		B16B5A4F264714FE00F7D18C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B16B5A52264730DD00F7D18C /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B16B5A56264732E000F7D18C /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,9 +149,18 @@
 		B16B5A4E264714E000F7D18C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B16B5A51264730B400F7D18C /* Character */,
 				B16B5A4F264714FE00F7D18C /* HomeView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B16B5A51264730B400F7D18C /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				B16B5A52264730DD00F7D18C /* CharacterView.swift */,
+			);
+			path = Character;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +179,9 @@
 			dependencies = (
 			);
 			name = "Marvel Heros";
+			packageProductDependencies = (
+				B16B5A55264732E000F7D18C /* SDWebImageSwiftUI */,
+			);
 			productName = "Marvel Heros";
 			productReference = B16B5A212647019500F7D18C /* Marvel Heros.app */;
 			productType = "com.apple.product-type.application";
@@ -193,6 +209,9 @@
 				Base,
 			);
 			mainGroup = B16B5A182647019500F7D18C;
+			packageReferences = (
+				B16B5A54264732E000F7D18C /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = B16B5A222647019500F7D18C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -224,6 +243,7 @@
 				B16B5A4326470D7100F7D18C /* CharacterData.swift in Sources */,
 				B16B5A3A264701DD00F7D18C /* AppConstants.swift in Sources */,
 				B16B5A4A2647134300F7D18C /* ComicData.swift in Sources */,
+				B16B5A53264730DD00F7D18C /* CharacterView.swift in Sources */,
 				B16B5A252647019500F7D18C /* AppDelegate.swift in Sources */,
 				B16B5A4D2647142D00F7D18C /* ComicResults.swift in Sources */,
 				B16B5A272647019500F7D18C /* SceneDelegate.swift in Sources */,
@@ -300,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -355,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -431,6 +451,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B16B5A54264732E000F7D18C /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B16B5A55264732E000F7D18C /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B16B5A54264732E000F7D18C /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B16B5A192647019500F7D18C /* Project object */;
 }
