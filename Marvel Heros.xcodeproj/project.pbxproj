@@ -18,6 +18,7 @@
 		B16B5A40264707E800F7D18C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A3F264707E800F7D18C /* Character.swift */; };
 		B16B5A4326470D7100F7D18C /* CharacterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4226470D7100F7D18C /* CharacterData.swift */; };
 		B16B5A4526470EA200F7D18C /* CharacterResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4426470EA200F7D18C /* CharacterResults.swift */; };
+		B16B5A482647122000F7D18C /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A472647122000F7D18C /* Comic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B16B5A3F264707E800F7D18C /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		B16B5A4226470D7100F7D18C /* CharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterData.swift; sourceTree = "<group>"; };
 		B16B5A4426470EA200F7D18C /* CharacterResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResults.swift; sourceTree = "<group>"; };
+		B16B5A472647122000F7D18C /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		B16B5A3E264707B500F7D18C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B16B5A46264711F400F7D18C /* Comic */,
 				B16B5A41264709D300F7D18C /* Character */,
 			);
 			path = Models;
@@ -120,6 +123,14 @@
 				B16B5A4426470EA200F7D18C /* CharacterResults.swift */,
 			);
 			path = Character;
+			sourceTree = "<group>";
+		};
+		B16B5A46264711F400F7D18C /* Comic */ = {
+			isa = PBXGroup;
+			children = (
+				B16B5A472647122000F7D18C /* Comic.swift */,
+			);
+			path = Comic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 				B16B5A272647019500F7D18C /* SceneDelegate.swift in Sources */,
 				B16B5A40264707E800F7D18C /* Character.swift in Sources */,
 				B16B5A3D264703AD00F7D18C /* HomeViewModel.swift in Sources */,
+				B16B5A482647122000F7D18C /* Comic.swift in Sources */,
 				B16B5A292647019500F7D18C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
