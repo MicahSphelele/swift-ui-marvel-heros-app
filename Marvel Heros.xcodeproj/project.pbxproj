@@ -21,6 +21,7 @@
 		B16B5A482647122000F7D18C /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A472647122000F7D18C /* Comic.swift */; };
 		B16B5A4A2647134300F7D18C /* ComicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A492647134300F7D18C /* ComicData.swift */; };
 		B16B5A4D2647142D00F7D18C /* ComicResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4C2647142D00F7D18C /* ComicResults.swift */; };
+		B16B5A50264714FE00F7D18C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4F264714FE00F7D18C /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B16B5A472647122000F7D18C /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		B16B5A492647134300F7D18C /* ComicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicData.swift; sourceTree = "<group>"; };
 		B16B5A4C2647142D00F7D18C /* ComicResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicResults.swift; sourceTree = "<group>"; };
+		B16B5A4F264714FE00F7D18C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		B16B5A232647019500F7D18C /* Marvel Heros */ = {
 			isa = PBXGroup;
 			children = (
+				B16B5A4E264714E000F7D18C /* Views */,
 				B16B5A3E264707B500F7D18C /* Models */,
 				B16B5A3B2647038500F7D18C /* ViewModels */,
 				B16B5A38264701A900F7D18C /* Constants */,
@@ -137,6 +140,14 @@
 				B16B5A4C2647142D00F7D18C /* ComicResults.swift */,
 			);
 			path = Comic;
+			sourceTree = "<group>";
+		};
+		B16B5A4E264714E000F7D18C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B16B5A4F264714FE00F7D18C /* HomeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 				B16B5A272647019500F7D18C /* SceneDelegate.swift in Sources */,
 				B16B5A40264707E800F7D18C /* Character.swift in Sources */,
 				B16B5A3D264703AD00F7D18C /* HomeViewModel.swift in Sources */,
+				B16B5A50264714FE00F7D18C /* HomeView.swift in Sources */,
 				B16B5A482647122000F7D18C /* Comic.swift in Sources */,
 				B16B5A292647019500F7D18C /* ContentView.swift in Sources */,
 			);
@@ -363,6 +375,7 @@
 				DEVELOPMENT_TEAM = 262JM42PZY;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Marvel Heros/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -370,7 +383,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.smn.marvelheros.Marvel-Heros";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -384,6 +397,7 @@
 				DEVELOPMENT_TEAM = 262JM42PZY;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Marvel Heros/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -391,7 +405,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.smn.marvelheros.Marvel-Heros";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
