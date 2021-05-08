@@ -43,9 +43,9 @@ class HomeViewModel : ObservableObject {
     
     func searchCharacters() {
         let timeStamp = String(Date().timeIntervalSince1970)
-        let hash =  AppConstants.MD5(data: "\(timeStamp)\(AppConstants.PRIVATE_KEY)\(AppConstants.PUBLIC_KEY)")
+        //let hash =  AppConstants.MD5(data: "\(timeStamp)\(AppConstants.PRIVATE_KEY)\(AppConstants.PUBLIC_KEY)")
         let originalQuery = self.searchQuery.replacingOccurrences(of: " ", with: "%20")
-        let apiUrl = "http://gateway.marvel.com:443/v1/public/characters?nameStartsWith = \(originalQuery)&ts=\(timeStamp)&apiKey=\(AppConstants.PUBLIC_KEY)&hash\(hash)"
+        let apiUrl = "http://gateway.marvel.com:443/v1/public/characters?nameStartsWith = \(originalQuery)&ts=\(timeStamp)&apiKey=\(AppConstants.PUBLIC_KEY)&hash\(self.getApiHash(timeStamp: timeStamp))"
         
         let session = URLSession(configuration: .default)
         
@@ -74,5 +74,42 @@ class HomeViewModel : ObservableObject {
             }
             
         }.resume()
+    }
+    
+    func fetchComics() {
+        let timeStamp = String(Date().timeIntervalSince1970)
+        let apiUrl = "http://gateway.marvel.com:443/v1/public/comics?limit=20&offset=\(self.offeset)&ts=\(timeStamp)&apiKey=\(AppConstants.PUBLIC_KEY)&hash\(self.getApiHash(timeStamp: timeStamp))"
+        
+        let session = URLSession(configuration: .default)
+        
+        session.dataTask(with: URL(string: apiUrl)!) { (data, _, err) in
+            
+            if let error = err {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let apiData = data else {
+                print("No comic data found")
+                return
+            }
+            
+            do {
+                let comics = try JSONDecoder().decode(ComicResults.self, from: apiData)
+                
+                DispatchQueue.main.async {
+                    
+                    self.fectchedComics.append(contentsOf: comics.data.results)
+                  
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+   private func getApiHash(timeStamp: String) -> String {
+        
+        return AppConstants.MD5(data: "\(timeStamp)\(AppConstants.PRIVATE_KEY)\(AppConstants.PUBLIC_KEY)")
     }
 }
