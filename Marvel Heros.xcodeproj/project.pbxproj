@@ -13,7 +13,7 @@
 		B16B5A2B2647019500F7D18C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B16B5A2A2647019500F7D18C /* Assets.xcassets */; };
 		B16B5A2E2647019500F7D18C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B16B5A2D2647019500F7D18C /* Preview Assets.xcassets */; };
 		B16B5A312647019600F7D18C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B16B5A2F2647019500F7D18C /* LaunchScreen.storyboard */; };
-		B16B5A3A264701DD00F7D18C /* Constants .swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A39264701DD00F7D18C /* Constants .swift */; };
+		B16B5A3A264701DD00F7D18C /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A39264701DD00F7D18C /* AppConstants.swift */; };
 		B16B5A3D264703AD00F7D18C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A3C264703AD00F7D18C /* HomeViewModel.swift */; };
 		B16B5A40264707E800F7D18C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A3F264707E800F7D18C /* Character.swift */; };
 		B16B5A4326470D7100F7D18C /* CharacterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4226470D7100F7D18C /* CharacterData.swift */; };
@@ -33,7 +33,7 @@
 		B16B5A2D2647019500F7D18C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B16B5A302647019500F7D18C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B16B5A322647019600F7D18C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B16B5A39264701DD00F7D18C /* Constants .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants .swift"; sourceTree = "<group>"; };
+		B16B5A39264701DD00F7D18C /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		B16B5A3C264703AD00F7D18C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B16B5A3F264707E800F7D18C /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		B16B5A4226470D7100F7D18C /* CharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterData.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		B16B5A38264701A900F7D18C /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				B16B5A39264701DD00F7D18C /* Constants .swift */,
+				B16B5A39264701DD00F7D18C /* AppConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -222,7 +222,7 @@
 			files = (
 				B16B5A4526470EA200F7D18C /* CharacterResults.swift in Sources */,
 				B16B5A4326470D7100F7D18C /* CharacterData.swift in Sources */,
-				B16B5A3A264701DD00F7D18C /* Constants .swift in Sources */,
+				B16B5A3A264701DD00F7D18C /* AppConstants.swift in Sources */,
 				B16B5A4A2647134300F7D18C /* ComicData.swift in Sources */,
 				B16B5A252647019500F7D18C /* AppDelegate.swift in Sources */,
 				B16B5A4D2647142D00F7D18C /* ComicResults.swift in Sources */,
