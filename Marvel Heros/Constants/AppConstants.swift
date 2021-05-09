@@ -10,8 +10,8 @@ import CryptoKit
 
 class AppConstants {
     
-   static let PUBLIC_KEY = "0d82abc8a51e71632327a4e415e734d1"
-   static let PRIVATE_KEY = "006779b222b68e9f5643ee83df57d92fd4586be7"
+   static let PUBLIC_KEY = ""
+   static let PRIVATE_KEY = ""
    
    static func MD5(data: String) -> String {
         let hash = Insecure.MD5.hash(data: data.data(using: .utf8) ?? Data())

@@ -48,12 +48,12 @@ class HomeViewModel : ObservableObject {
         let timeStamp = String(Date().timeIntervalSince1970)
         //let hash =  AppConstants.MD5(data: "\(timeStamp)\(AppConstants.PRIVATE_KEY)\(AppConstants.PUBLIC_KEY)")
         //let originalQuery = self.searchQuery.replacingOccurrences(of: " ", with: "%20")
-        let apiUrl = "https://gateway.marvel.com:443/v1/public/characters?limit=1&apikey=\(AppConstants.PUBLIC_KEY)&ts=\(timeStamp)&hash=\(self.getApiHash(timeStamp: timeStamp))"
+        let apiUrl = "https://gateway.marvel.com:443/v1/public/characters?limit=15&apikey=\(AppConstants.PUBLIC_KEY)&ts=\(timeStamp)&hash=\(self.getApiHash(timeStamp: timeStamp))"
         print(apiUrl)
         let session = URLSession.shared
         
         let url = URL(string: apiUrl)
-        //0d82abc8a51e71632327a4e415e734d1
+        
         if url == nil {
             print("URL is nil")
             return
@@ -61,7 +61,6 @@ class HomeViewModel : ObservableObject {
         
         session.dataTask(with: url! ) { (data, response, err) in
             
-            //print("Response \(data)")
             
             if let error = err {
                 print("Error = \(error.localizedDescription)")
