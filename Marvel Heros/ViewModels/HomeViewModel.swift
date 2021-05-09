@@ -48,7 +48,7 @@ class HomeViewModel : ObservableObject {
         let timeStamp = String(Date().timeIntervalSince1970)
         //let hash =  AppConstants.MD5(data: "\(timeStamp)\(AppConstants.PRIVATE_KEY)\(AppConstants.PUBLIC_KEY)")
         //let originalQuery = self.searchQuery.replacingOccurrences(of: " ", with: "%20")
-        let apiUrl = "https://gateway.marvel.com:443/v1/public/characters?limit=15&apikey=\(AppConstants.PUBLIC_KEY)&ts=\(timeStamp)&hash=\(self.getApiHash(timeStamp: timeStamp))"
+        let apiUrl = "https://gateway.marvel.com:443/v1/public/characters?limit=20&apikey=\(AppConstants.PUBLIC_KEY)&ts=\(timeStamp)&hash=\(self.getApiHash(timeStamp: timeStamp))"
         print(apiUrl)
         let session = URLSession.shared
         
