@@ -15,7 +15,7 @@ class HomeViewModel : ObservableObject {
     var searchaCancellable : AnyCancellable? = nil
     
     //Combine Framework searchbar
-    @Published var searchQuery = ""
+    @Published var searchQuery = "batman"
     
     //Fetched characters data
     @Published var fectchedCharacters : [Character]? = nil
@@ -27,14 +27,17 @@ class HomeViewModel : ObservableObject {
     
     
     init() {
+        print("init()")
         self.searchaCancellable = $searchQuery
             .removeDuplicates() // Removing duplicate typings
             .debounce(for: 0.4, scheduler: RunLoop.main) // We need to fetch for every typing, it will wait for 0.4 after user ends typing
             .sink(receiveValue: { stringValue in
                 
                 if stringValue == "" {
+                    print("stringValue == \"\"")
                     self.fectchedCharacters = nil
                 } else {
+                    print("else searchCharacters()")
                     self.fectchedCharacters = nil
                     self.searchCharacters()
                 }
@@ -44,15 +47,24 @@ class HomeViewModel : ObservableObject {
     func searchCharacters() {
         let timeStamp = String(Date().timeIntervalSince1970)
         //let hash =  AppConstants.MD5(data: "\(timeStamp)\(AppConstants.PRIVATE_KEY)\(AppConstants.PUBLIC_KEY)")
-        let originalQuery = self.searchQuery.replacingOccurrences(of: " ", with: "%20")
-        let apiUrl = "http://gateway.marvel.com:443/v1/public/characters?nameStartsWith = \(originalQuery)&ts=\(timeStamp)&apiKey=\(AppConstants.PUBLIC_KEY)&hash\(self.getApiHash(timeStamp: timeStamp))"
+        //let originalQuery = self.searchQuery.replacingOccurrences(of: " ", with: "%20")
+        let apiUrl = "https://gateway.marvel.com:443/v1/public/characters?limit=1&apikey=\(AppConstants.PUBLIC_KEY)&ts=\(timeStamp)&hash=\(self.getApiHash(timeStamp: timeStamp))"
+        print(apiUrl)
+        let session = URLSession.shared
         
-        let session = URLSession(configuration: .default)
+        let url = URL(string: apiUrl)
+        //0d82abc8a51e71632327a4e415e734d1
+        if url == nil {
+            print("URL is nil")
+            return
+        }
         
-        session.dataTask(with: URL(string: apiUrl)!) { (data, _, err) in
+        session.dataTask(with: url! ) { (data, response, err) in
+            
+            //print("Response \(data)")
             
             if let error = err {
-                print(error.localizedDescription)
+                print("Error = \(error.localizedDescription)")
                 return
             }
             
@@ -63,14 +75,14 @@ class HomeViewModel : ObservableObject {
             
             do {
                 let characters = try JSONDecoder().decode(CharacterResults.self, from: apiData)
-                
+
                 DispatchQueue.main.async {
                     if self.fectchedCharacters == nil {
                         self.fectchedCharacters = characters.data.results
                     }
                 }
             } catch {
-                print(error.localizedDescription)
+                print("Error 2 = \(error as Any) ")
             }
             
         }.resume()

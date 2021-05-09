@@ -51,10 +51,13 @@ struct CharacterRowView: View {
     
     var character: Character
     
+    //print("Image = \(imageUrl)")
+    
     var body: some View {
         HStack(alignment: .top, spacing: 15, content: {
             
-            WebImage(url: AppConstants.extractImage(data: character.thumnail))
+            
+            WebImage(url: AppConstants.extractImage(data: self.character.thumbnail))
                 .resizable()
                 .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                 .frame(width: 150, height: 150)
@@ -65,14 +68,14 @@ struct CharacterRowView: View {
                     .font(.title)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
-                Text(character.name)
+                Text(character.description)
                     .font(.caption)
                     .foregroundColor(.gray)
                     .lineLimit(4)
                     .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
                 
                 //Links
-                HStack(spacing: 10) {
+                VStack(spacing: 5) {
                 
                     ForEach(self.character.urls, id: \.self) { data in
                         
@@ -87,11 +90,12 @@ struct CharacterRowView: View {
                             })
                     }
                 }
+                
             })
-            
             Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
             
         }).padding(.horizontal)
+        Divider()
     }
 }
 
