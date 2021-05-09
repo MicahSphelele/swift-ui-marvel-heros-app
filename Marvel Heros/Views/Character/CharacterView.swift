@@ -11,90 +11,104 @@ import SDWebImageSwiftUI
 struct CharacterView: View {
     
     @EnvironmentObject var homeViewModel : HomeViewModel
+    @State var isTapped = false
     
     var body: some View {
         
-        NavigationView {
-            ScrollView(.vertical,showsIndicators:false,content : {
-                VStack(spacing: 15) {
-                    HStack(spacing: 10){
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
-                        TextField("Search Character",text : $homeViewModel.searchQuery)
-                            .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
-                            .disableAutocorrection(true)
-                    }.padding(.vertical,10)
-                    .padding(.horizontal)
-                    .background(Color.white)
-                    .shadow(color: Color.black.opacity(0.06), radius: 5, x: 5, y: 5)
-                    .shadow(color: Color.black.opacity(0.06), radius: 5, x: -5, y: -5)
-                }.padding()
+        if homeViewModel.isCharacterDataLoading {
+        
+                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                    .scaleEffect(2)
+            
+        } else {
+            GeometryReader { geometry in
                 
-                if let characters = self.homeViewModel.fectchedCharacters {
-                    if characters.isEmpty {
-                        Text("No Results Found")
-                            .padding(.top,20)
-                    } else {
-                        ForEach(characters) { data in
-                            CharacterRowView(character: data)
+                NavigationView {
+                
+                    ScrollView(.vertical, showsIndicators:false, content : {
+                        
+                        if let characters = self.homeViewModel.fectchedCharacters {
+                            if characters.isEmpty {
+                                Text("No Results Found")
+                                    .padding(.top,20)
+                            } else {
+                                ForEach(characters) { data in
+                                    CharacterCardViewItem(character: data, geoProxy:geometry,isTapped: isTapped)
+                                        
+                                }
+                            }
                         }
-                    }
+                        
+                    }).navigationBarTitle(isTapped ? "Back" : "Marvel Heros")
                 }
-                
-            })
-            .navigationBarTitle("Marvel Heros")
+            }
         }
+        
+
+
     }
 }
 
-struct CharacterRowView: View {
+struct CharacterCardViewItem: View {
     
     var character: Character
-    
-    //print("Image = \(imageUrl)")
+    var geoProxy: GeometryProxy
+    @State var isTapped = false
     
     var body: some View {
-        HStack(alignment: .top, spacing: 15, content: {
+        VStack(spacing: 10, content: {
             
-            
-            WebImage(url: AppConstants.extractImage(data: self.character.thumbnail))
-                .resizable()
-                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                .frame(width: 150, height: 150)
-                .cornerRadius(8)
-            
-            VStack(alignment: .leading, spacing: 8, content: {
+            NavigationLink(
+                destination:
+                    
+                    Text("\(self.character.name)")
+                    .navigationBarTitle(self.character.name).onAppear() {
+                        self.isTapped.toggle()
+                    }
+                
+                ,label: {
+                    WebImage(url: AppConstants.extractImage(data: self.character.thumbnail))
+                        .resizable()
+                        .placeholder(Image(systemName: "photo"))
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: self.geoProxy.size.width, height: 250)
+                        .cornerRadius(8)
+                })
+        
+            VStack(alignment: .center, content: {
                 Text(character.name)
-                    .font(.title)
+                    .font(.system(size: 18))
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
-                Text(character.description)
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                    .lineLimit(4)
-                    .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+//                Text(character.description)
+//                    .font(.caption)
+//                    .foregroundColor(.gray)
+//                    .lineLimit(4)
+//                    .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
                 
                 //Links
-                VStack(spacing: 5) {
-                
-                    ForEach(self.character.urls, id: \.self) { data in
-                        
-                        let link = AppConstants.exctractURL(data: data)
-                        let urlType = AppConstants.exctractURLType(data: data)
-                        
-                        NavigationLink(
-                            destination: WebView(url: link)
-                                .navigationBarTitle(urlType),
-                            label: {
-                                Text(urlType)
-                            })
-                    }
-                }
+//                VStack(spacing: 5) {
+//
+//                    ForEach(self.character.urls, id: \.self) { data in
+//
+//                        let link = AppConstants.exctractURL(data: data)
+//                        let urlType = AppConstants.exctractURLType(data: data)
+//
+//                        NavigationLink(
+//                            destination: WebView(url: link)
+//                                .navigationBarTitle(urlType),
+//                            label: {
+//                                Text(urlType)
+//                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+//                            })
+//                    }
+//                }
                 
             })
             Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
             
         }).padding(.horizontal)
+        .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
         Divider()
     }
 }

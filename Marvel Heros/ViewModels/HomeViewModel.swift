@@ -25,6 +25,8 @@ class HomeViewModel : ObservableObject {
     
     @Published var offeset: Int = 0
     
+    @Published var isCharacterDataLoading = true;
+    
     
     init() {
         print("init()")
@@ -34,22 +36,21 @@ class HomeViewModel : ObservableObject {
             .sink(receiveValue: { stringValue in
                 
                 if stringValue == "" {
-                    print("stringValue == \"\"")
+                    print("Search string is empty")
                     self.fectchedCharacters = nil
                 } else {
-                    print("else searchCharacters()")
+                    print("Try an fetch/search characters")
                     self.fectchedCharacters = nil
-                    self.searchCharacters()
+                    self.fetchCharacters()
                 }
             })
     }
     
-    func searchCharacters() {
+    func fetchCharacters() {
         let timeStamp = String(Date().timeIntervalSince1970)
         //let hash =  AppConstants.MD5(data: "\(timeStamp)\(AppConstants.PRIVATE_KEY)\(AppConstants.PUBLIC_KEY)")
         //let originalQuery = self.searchQuery.replacingOccurrences(of: " ", with: "%20")
         let apiUrl = "https://gateway.marvel.com:443/v1/public/characters?limit=20&apikey=\(AppConstants.PUBLIC_KEY)&ts=\(timeStamp)&hash=\(self.getApiHash(timeStamp: timeStamp))"
-        print(apiUrl)
         let session = URLSession.shared
         
         let url = URL(string: apiUrl)
@@ -77,11 +78,12 @@ class HomeViewModel : ObservableObject {
 
                 DispatchQueue.main.async {
                     if self.fectchedCharacters == nil {
+                        self.isCharacterDataLoading = false;
                         self.fectchedCharacters = characters.data.results
                     }
                 }
             } catch {
-                print("Error 2 = \(error as Any) ")
+                print("Exception error : \(error as Any) ")
             }
             
         }.resume()
