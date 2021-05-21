@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CryptoKit
 import Combine
 
 class HomeViewModel : ObservableObject {
@@ -27,9 +26,11 @@ class HomeViewModel : ObservableObject {
     
     @Published var isCharacterDataLoading = true;
     
+    @Published var isErrorEncountered = false;
+    
     
     init() {
-        print("init()")
+        print("init HomeViewModel")
         self.searchaCancellable = $searchQuery
             .removeDuplicates() // Removing duplicate typings
             .debounce(for: 0.4, scheduler: RunLoop.main) // We need to fetch for every typing, it will wait for 0.4 after user ends typing
@@ -57,6 +58,8 @@ class HomeViewModel : ObservableObject {
         
         if url == nil {
             print("URL is nil")
+            self.isCharacterDataLoading = false
+            self.isErrorEncountered = true
             return
         }
         
@@ -65,11 +68,17 @@ class HomeViewModel : ObservableObject {
             
             if let error = err {
                 print("Error = \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.isCharacterDataLoading = false
+                    self.isErrorEncountered = true
+                }
                 return
             }
             
             guard let apiData = data else {
                 print("No character data found")
+                self.isCharacterDataLoading = false
+                self.isErrorEncountered = true
                 return
             }
             
@@ -79,11 +88,14 @@ class HomeViewModel : ObservableObject {
                 DispatchQueue.main.async {
                     if self.fectchedCharacters == nil {
                         self.isCharacterDataLoading = false;
+                        self.isErrorEncountered = false
                         self.fectchedCharacters = characters.data.results
                     }
                 }
             } catch {
                 print("Exception error : \(error as Any) ")
+                self.isCharacterDataLoading = false
+                self.isErrorEncountered = true
             }
             
         }.resume()
