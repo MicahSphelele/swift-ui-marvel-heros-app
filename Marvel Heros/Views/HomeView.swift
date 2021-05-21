@@ -14,16 +14,18 @@ struct HomeView : View {
     var body: some View {
         
         TabView {
+            
             CharacterListView()
                 .tabItem {
                     Image(systemName: "person.3.fill")
                     Text ("Characters")
                 }.environmentObject(self.homeViewModel)
+            
             ComicListView()
                 .tabItem {
                     Image(systemName: "books.vertical.fill")
                     Text ("Comics")
-                }
+                }.environmentObject(self.homeViewModel)
         }
     }
 }
