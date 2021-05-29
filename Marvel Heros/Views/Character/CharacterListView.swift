@@ -10,45 +10,52 @@ import SDWebImageSwiftUI
 
 struct CharacterListView: View {
     
-    @EnvironmentObject var homeViewModel : MainViewModel
-    @State var isTapped = false
+    @EnvironmentObject var mainViewModel : MainViewModel
     @State var isPresented = true
+    @State var isDataReloaded = false
     
     var body: some View {
         
-        if homeViewModel.isCharacterDataLoading {
-        
-                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .green))
-                    .scaleEffect(2)
-
+        ZStack {
+            if mainViewModel.isCharacterDataLoading {
             
-        } else {
-            GeometryReader { geometry in
+                    ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .green))
+                        .scaleEffect(2)
                 
-                ScrollView(.vertical, showsIndicators:false, content : {
+            } else {
+            
+                GeometryReader { geometry in
                     
-                    if let characters = self.homeViewModel.fectchedCharacters {
-                        if characters.isEmpty {
-                            Text("No Results Found")
-                                .padding(.top,20)
-                        } else {
-                            ForEach(characters) { data in
-                                CharacterCardViewItem(character: data, geoProxy:geometry,isTapped: isTapped)
-                                    
+                    ScrollView(.vertical, showsIndicators:false, content : {
+                        
+                        if let characters = self.mainViewModel.fectchedCharacters {
+                            if characters.isEmpty {
+                                Text("No Results Found")
+                                    .padding(.top,20)
+                            } else {
+                                ForEach(characters) { data in
+                                    CharacterCardViewItem(character: data, geoProxy:geometry)
+                                        
+                                }
                             }
                         }
-                    }
-                    
-                    if(self.homeViewModel.isErrorEncountered) {
-                        Text("")
-                            .alert(isPresented: $isPresented) {
-                                Alert(title: Text("Error Encountered"), message: Text("Check internet connection"), dismissButton: .default(Text("Got it!")))
-                            }
-                    }
-                    
-                })
+                        
+                        if(self.mainViewModel.isErrorEncountered) {
+                            Text("")
+                                .alert(isPresented: $isPresented) {
+                                    Alert(title: Text("Error Encountered"), message: Text("Check internet connection"), dismissButton: .default(Text("Got it!")))
+                                }
+                        }
+                        
+                    })
+                }
             }
-        }
+        }.onAppear {
+            mainViewModel.isCharacterDataLoading = true
+            mainViewModel.fectchedCharacters = nil
+            mainViewModel.fetchCharacters()
+            
+        } // ZStack END
     }
 }
 
@@ -56,7 +63,6 @@ struct CharacterCardViewItem: View {
     
     var character: Character
     var geoProxy: GeometryProxy
-    @State var isTapped = false
     
     var body: some View {
         VStack(spacing: 10, content: {
@@ -64,10 +70,8 @@ struct CharacterCardViewItem: View {
             NavigationLink(
                 destination:
                     
-                    Text("\(self.character.name)")
-                    .navigationBarTitle(self.character.name).onAppear() {
-                        self.isTapped.toggle()
-                    }
+                    SingleCharacterView(character: self.character)
+                    .navigationBarTitle(self.character.name)
                 
                 ,label: {
                     WebImage(url: AppConstants.extractImage(data: self.character.thumbnail))
@@ -82,30 +86,6 @@ struct CharacterCardViewItem: View {
                 Text(character.name)
                     .font(.system(size: 18))
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                
-//                Text(character.description)
-//                    .font(.caption)
-//                    .foregroundColor(.gray)
-//                    .lineLimit(4)
-//                    .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-                
-                //Links
-//                VStack(spacing: 5) {
-//
-//                    ForEach(self.character.urls, id: \.self) { data in
-//
-//                        let link = AppConstants.exctractURL(data: data)
-//                        let urlType = AppConstants.exctractURLType(data: data)
-//
-//                        NavigationLink(
-//                            destination: WebView(url: link)
-//                                .navigationBarTitle(urlType),
-//                            label: {
-//                                Text(urlType)
-//                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-//                            })
-//                    }
-//                }
                 
             })
             Spacer(minLength: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)

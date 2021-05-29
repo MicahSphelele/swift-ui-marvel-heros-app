@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  MainViewModel.swift
 //  Marvel Heros
 //
 //  Created by Sphelele Ngubane on 2021/05/08.
@@ -43,7 +43,7 @@ class MainViewModel : ObservableObject {
                 } else {
                     print("Try an fetch/search characters")
                     self.fectchedCharacters = nil
-                    self.fetchCharacters()
+                    //self.fetchCharacters()
                 }
             })
     }
