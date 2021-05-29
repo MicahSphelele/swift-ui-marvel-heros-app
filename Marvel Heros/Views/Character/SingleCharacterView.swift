@@ -29,20 +29,57 @@ struct SingleCharacterView: View {
                     .font(.system(size: 35,weight: .bold))
                     .foregroundColor(.green)
                 
-                Text(self.character.description)
+                Text(self.character.description == "" ? "This character does not have a description"
+                        : self.character.description)
+                    .padding()
+                    .font(.caption)
                     .foregroundColor(.green)
+                
+                Spacer()
+                
+                VStack {
+                    ForEach(self.character.urls, id: \.self) { url in
+                        
+                        let link = AppConstants.exctractURL(data: url)
+                        let linkType = AppConstants.exctractURLType(data: url)
+                    
+                        NavigationLink(
+                            destination: WebView(url: link)
+                                .navigationBarTitle(linkType),
+                            label: {
+                                Text(linkType)
+                                    .frame(width: 280, height: 50,alignment: .center)
+                                    .background(Color.green)
+                                    .foregroundColor(.white)
+                                
+                            }).cornerRadius(10)
+                            
+                        Spacer()
+                    
+                    }
+                }
             }
             
         }).navigationTitle("")
         .toolbar(content: {
             ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                    Button {
-                   
-                    } label: {
-                        Label("Mode", systemImage: "info.circle.fill")
-                            .labelStyle(IconOnlyLabelStyle())
-                    }
+                
+                let link =  URL(string: character.urls[0]["url"] ?? "")!
+                
+                let linkType = character.urls[0]["type"]?.capitalized
+                
+                if(linkType == "Detail") {
+                    NavigationLink(
+                        destination: WebView(url: link),
+                        label: {
+                            Label("Mode", systemImage: "info.circle.fill")
+                                .labelStyle(IconOnlyLabelStyle())
+                        })
                 }
+                
+              
+            
+            }
         })
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         .frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

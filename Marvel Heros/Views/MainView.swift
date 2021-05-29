@@ -39,7 +39,7 @@ struct MainView : View {
                 
             ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarTrailing) {
                     Button {
-                        if(mainViewModel.isDarkMode){
+                        if(mainViewModel.isDarkMode) {
                             mainViewModel.isDarkMode = false
                             return
                         }

@@ -40,5 +40,4 @@ class AppConstants {
         
         return type.capitalized
     }
-    
 }

@@ -70,7 +70,6 @@ struct CharacterCardViewItem: View {
                 destination:
                     
                     SingleCharacterView(character: self.character, geometryProxy: self.geometryProxy)
-                    .navigationBarTitle(self.character.name)
                 
                 ,label: {
                     WebImage(url: AppConstants.extractImage(data: self.character.thumbnail))
@@ -79,7 +78,9 @@ struct CharacterCardViewItem: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: self.geometryProxy.size.width - 25, height: 250)
                         .cornerRadius(8)
-                })
+                }).onTapGesture {
+                    print("Tapped Character")
+                }
         
             VStack(alignment: .center, content: {
                 Text(character.name)
