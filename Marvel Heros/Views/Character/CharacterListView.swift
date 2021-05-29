@@ -34,8 +34,7 @@ struct CharacterListView: View {
                                     .padding(.top,20)
                             } else {
                                 ForEach(characters) { data in
-                                    CharacterCardViewItem(character: data, geoProxy:geometry)
-                                        
+                                    CharacterCardViewItem(character: data, geometryProxy:geometry)
                                 }
                             }
                         }
@@ -51,8 +50,8 @@ struct CharacterListView: View {
                 }
             }
         }.onAppear {
-            mainViewModel.isCharacterDataLoading = true
-            mainViewModel.fectchedCharacters = nil
+            //mainViewModel.isCharacterDataLoading = true
+            //mainViewModel.fectchedCharacters = nil
             mainViewModel.fetchCharacters()
             
         } // ZStack END
@@ -62,7 +61,7 @@ struct CharacterListView: View {
 struct CharacterCardViewItem: View {
     
     var character: Character
-    var geoProxy: GeometryProxy
+    var geometryProxy: GeometryProxy
     
     var body: some View {
         VStack(spacing: 10, content: {
@@ -70,7 +69,7 @@ struct CharacterCardViewItem: View {
             NavigationLink(
                 destination:
                     
-                    SingleCharacterView(character: self.character)
+                    SingleCharacterView(character: self.character, geometryProxy: self.geometryProxy)
                     .navigationBarTitle(self.character.name)
                 
                 ,label: {
@@ -78,7 +77,7 @@ struct CharacterCardViewItem: View {
                         .resizable()
                         .placeholder(Image(systemName: "photo"))
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: self.geoProxy.size.width - 25, height: 250)
+                        .frame(width: self.geometryProxy.size.width - 25, height: 250)
                         .cornerRadius(8)
                 })
         

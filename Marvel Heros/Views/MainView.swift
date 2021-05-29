@@ -36,23 +36,20 @@ struct MainView : View {
             }.navigationTitle("Marvel Heros")
             .accentColor(.green)
             .toolbar(content: {
+                
             ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                Button {
-                    if(mainViewModel.isDarkMode){
-                        mainViewModel.isDarkMode = false
-                        return
+                    Button {
+                        if(mainViewModel.isDarkMode){
+                            mainViewModel.isDarkMode = false
+                            return
+                        }
+                        mainViewModel.isDarkMode = true
+                    } label: {
+                        Label("Mode", systemImage: "moon.fill")
+                            .labelStyle(IconOnlyLabelStyle())
                     }
-                    mainViewModel.isDarkMode = true
-                } label: {
-                    Label("Mode", systemImage: "smallcircle.fill.circle")
-                        .foregroundColor(.green)
-                        .accentColor(.green)
-                        .colorMultiply(.green)
-                        .labelStyle(IconOnlyLabelStyle())
-                }.accentColor(.green)
-                .foregroundColor(.green)
                 }
-            }).accentColor(.green)
+            })
         } //END NAV_VIEW
     }
 }
