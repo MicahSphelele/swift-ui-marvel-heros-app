@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B16B5A252647019500F7D18C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A242647019500F7D18C /* AppDelegate.swift */; };
 		B16B5A272647019500F7D18C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A262647019500F7D18C /* SceneDelegate.swift */; };
-		B16B5A292647019500F7D18C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A282647019500F7D18C /* ContentView.swift */; };
 		B16B5A2B2647019500F7D18C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B16B5A2A2647019500F7D18C /* Assets.xcassets */; };
 		B16B5A2E2647019500F7D18C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B16B5A2D2647019500F7D18C /* Preview Assets.xcassets */; };
 		B16B5A312647019600F7D18C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B16B5A2F2647019500F7D18C /* LaunchScreen.storyboard */; };
@@ -21,7 +20,7 @@
 		B16B5A482647122000F7D18C /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A472647122000F7D18C /* Comic.swift */; };
 		B16B5A4A2647134300F7D18C /* ComicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A492647134300F7D18C /* ComicData.swift */; };
 		B16B5A4D2647142D00F7D18C /* ComicResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4C2647142D00F7D18C /* ComicResults.swift */; };
-		B16B5A50264714FE00F7D18C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4F264714FE00F7D18C /* HomeView.swift */; };
+		B16B5A50264714FE00F7D18C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A4F264714FE00F7D18C /* MainView.swift */; };
 		B16B5A53264730DD00F7D18C /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A52264730DD00F7D18C /* CharacterListView.swift */; };
 		B16B5A56264732E000F7D18C /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B16B5A55264732E000F7D18C /* SDWebImageSwiftUI */; };
 		B19C10E8264744BB005FC600 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C10E7264744BB005FC600 /* WebView.swift */; };
@@ -32,7 +31,6 @@
 		B16B5A212647019500F7D18C /* Marvel Heros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Heros.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16B5A242647019500F7D18C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B16B5A262647019500F7D18C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B16B5A282647019500F7D18C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B16B5A2A2647019500F7D18C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B16B5A2D2647019500F7D18C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B16B5A302647019500F7D18C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -45,7 +43,7 @@
 		B16B5A472647122000F7D18C /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		B16B5A492647134300F7D18C /* ComicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicData.swift; sourceTree = "<group>"; };
 		B16B5A4C2647142D00F7D18C /* ComicResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicResults.swift; sourceTree = "<group>"; };
-		B16B5A4F264714FE00F7D18C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B16B5A4F264714FE00F7D18C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B16B5A52264730DD00F7D18C /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		B19C10E7264744BB005FC600 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		B1B8162E2658022300344D18 /* ComicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListView.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 				B16B5A38264701A900F7D18C /* Constants */,
 				B16B5A242647019500F7D18C /* AppDelegate.swift */,
 				B16B5A262647019500F7D18C /* SceneDelegate.swift */,
-				B16B5A282647019500F7D18C /* ContentView.swift */,
 				B16B5A2A2647019500F7D18C /* Assets.xcassets */,
 				B16B5A2F2647019500F7D18C /* LaunchScreen.storyboard */,
 				B16B5A322647019600F7D18C /* Info.plist */,
@@ -156,7 +153,7 @@
 				B1B8162D2658020200344D18 /* Comic */,
 				B19C10E626474488005FC600 /* WebView */,
 				B16B5A51264730B400F7D18C /* Character */,
-				B16B5A4F264714FE00F7D18C /* HomeView.swift */,
+				B16B5A4F264714FE00F7D18C /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,9 +269,8 @@
 				B16B5A272647019500F7D18C /* SceneDelegate.swift in Sources */,
 				B16B5A40264707E800F7D18C /* Character.swift in Sources */,
 				B16B5A3D264703AD00F7D18C /* HomeViewModel.swift in Sources */,
-				B16B5A50264714FE00F7D18C /* HomeView.swift in Sources */,
+				B16B5A50264714FE00F7D18C /* MainView.swift in Sources */,
 				B16B5A482647122000F7D18C /* Comic.swift in Sources */,
-				B16B5A292647019500F7D18C /* ContentView.swift in Sources */,
 				B19C10E8264744BB005FC600 /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

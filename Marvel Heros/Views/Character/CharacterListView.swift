@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct CharacterListView: View {
     
-    @EnvironmentObject var homeViewModel : HomeViewModel
+    @EnvironmentObject var homeViewModel : MainViewModel
     @State var isTapped = false
     @State var isPresented = true
     
@@ -18,44 +18,37 @@ struct CharacterListView: View {
         
         if homeViewModel.isCharacterDataLoading {
         
-                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .green))
                     .scaleEffect(2)
 
             
         } else {
             GeometryReader { geometry in
                 
-                NavigationView {
-                
-                    ScrollView(.vertical, showsIndicators:false, content : {
-                        
-                        if let characters = self.homeViewModel.fectchedCharacters {
-                            if characters.isEmpty {
-                                Text("No Results Found")
-                                    .padding(.top,20)
-                            } else {
-                                ForEach(characters) { data in
-                                    CharacterCardViewItem(character: data, geoProxy:geometry,isTapped: isTapped)
-                                        
-                                }
+                ScrollView(.vertical, showsIndicators:false, content : {
+                    
+                    if let characters = self.homeViewModel.fectchedCharacters {
+                        if characters.isEmpty {
+                            Text("No Results Found")
+                                .padding(.top,20)
+                        } else {
+                            ForEach(characters) { data in
+                                CharacterCardViewItem(character: data, geoProxy:geometry,isTapped: isTapped)
+                                    
                             }
                         }
-                        
-                        if(self.homeViewModel.isErrorEncountered) {
-                            Text("")
-                                .alert(isPresented: $isPresented) {
-                                    Alert(title: Text("Error Encountered"), message: Text("Check internet connection"), dismissButton: .default(Text("Got it!")))
-                                }
-                        }
-                        
-                    }).navigationBarTitle("Marvel Heros")
-                    //isTapped ? "Back" : "Marvel Heros"
-                }
+                    }
+                    
+                    if(self.homeViewModel.isErrorEncountered) {
+                        Text("")
+                            .alert(isPresented: $isPresented) {
+                                Alert(title: Text("Error Encountered"), message: Text("Check internet connection"), dismissButton: .default(Text("Got it!")))
+                            }
+                    }
+                    
+                })
             }
         }
-        
-
-
     }
 }
 
@@ -125,6 +118,6 @@ struct CharacterCardViewItem: View {
 
 struct CharacterView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }

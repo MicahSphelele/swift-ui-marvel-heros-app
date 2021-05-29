@@ -8,7 +8,9 @@
 import SwiftUI
 import Combine
 
-class HomeViewModel : ObservableObject {
+class MainViewModel : ObservableObject {
+    
+    @AppStorage("isDarkMode") var isDarkMode = false
     
     //Used to cancel the search publisher whenever we need
     var searchaCancellable : AnyCancellable? = nil
@@ -24,11 +26,10 @@ class HomeViewModel : ObservableObject {
     
     @Published var offeset: Int = 0
     
-    @Published var isCharacterDataLoading = true;
+    @Published var isCharacterDataLoading = true
     
-    @Published var isErrorEncountered = false;
-    
-    
+    @Published var isErrorEncountered = false
+
     init() {
         print("init HomeViewModel")
         self.searchaCancellable = $searchQuery
