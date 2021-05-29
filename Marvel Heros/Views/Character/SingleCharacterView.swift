@@ -35,6 +35,12 @@ struct SingleCharacterView: View {
                     .font(.caption)
                     .foregroundColor(.green)
                 
+                Text(self.character.modified == "" ? "Modified date not found"
+                        : self.character.modified)
+                    .padding()
+                    .font(.caption)
+                    .foregroundColor(.green)
+                
                 Spacer()
                 
                 VStack {

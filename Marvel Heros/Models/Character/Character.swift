@@ -10,6 +10,7 @@ import SwiftUI
 struct Character : Identifiable, Codable {
     var id : Int
     var name: String
+    var modified: String
     var description: String
     var thumbnail: [String : String]
     var urls: [[String : String]]
