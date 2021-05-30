@@ -40,4 +40,20 @@ class AppConstants {
         
         return type.capitalized
     }
+    
+    static func convertDate(stringDate: String) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-ddTHH:mm:sssZ"
+        let date = dateFormatter.date(from: "2014-04-29T14:18:17-0400")
+        
+        print("Original Date : \(stringDate)")
+        print("Date : \(String(describing: date))")
+        
+        if date == nil {
+            return stringDate
+        }
+
+        return ""
+    }
 }

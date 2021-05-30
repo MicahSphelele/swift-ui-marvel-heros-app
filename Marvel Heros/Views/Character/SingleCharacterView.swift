@@ -36,7 +36,7 @@ struct SingleCharacterView: View {
                     .foregroundColor(.green)
                 
                 Text(self.character.modified == "" ? "Modified date not found"
-                        : self.character.modified)
+                        : AppConstants.convertDate(stringDate: self.character.modified))
                     .padding()
                     .font(.caption)
                     .foregroundColor(.green)
