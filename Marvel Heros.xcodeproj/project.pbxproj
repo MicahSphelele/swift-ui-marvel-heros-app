@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B119A9432681A37A00ED5041 /* ComicCardViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119A9422681A37A00ED5041 /* ComicCardViewItem.swift */; };
 		B1580A7F2662D138009F2C4F /* SingleCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1580A7E2662D138009F2C4F /* SingleCharacterView.swift */; };
 		B16B5A252647019500F7D18C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A242647019500F7D18C /* AppDelegate.swift */; };
 		B16B5A272647019500F7D18C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A262647019500F7D18C /* SceneDelegate.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B119A9422681A37A00ED5041 /* ComicCardViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCardViewItem.swift; sourceTree = "<group>"; };
 		B1580A7E2662D138009F2C4F /* SingleCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCharacterView.swift; sourceTree = "<group>"; };
 		B16B5A212647019500F7D18C /* Marvel Heros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Heros.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16B5A242647019500F7D18C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				B1B8162E2658022300344D18 /* ComicListView.swift */,
+				B119A9422681A37A00ED5041 /* ComicCardViewItem.swift */,
 			);
 			path = Comic;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				B1580A7F2662D138009F2C4F /* SingleCharacterView.swift in Sources */,
 				B16B5A4526470EA200F7D18C /* CharacterResults.swift in Sources */,
+				B119A9432681A37A00ED5041 /* ComicCardViewItem.swift in Sources */,
 				B16B5A4326470D7100F7D18C /* CharacterData.swift in Sources */,
 				B16B5A3A264701DD00F7D18C /* AppConstants.swift in Sources */,
 				B16B5A4A2647134300F7D18C /* ComicData.swift in Sources */,
@@ -424,7 +428,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.smn.marvelheros.Marvel-Heros";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smn.marvelheros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -446,7 +451,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.smn.marvelheros.Marvel-Heros";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smn.marvelheros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

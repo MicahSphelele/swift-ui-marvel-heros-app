@@ -29,6 +29,8 @@ class MainViewModel : ObservableObject {
     @Published var isCharacterDataLoading = true
     
     @Published var isErrorEncountered = false
+    
+    @Published var isAlertPresented = false
 
     init() {
         print("init HomeViewModel")
@@ -104,23 +106,36 @@ class MainViewModel : ObservableObject {
     
     func fetchComics() {
         let timeStamp = String(Date().timeIntervalSince1970)
-        let apiUrl = "http://gateway.marvel.com:443/v1/public/comics?limit=20&offset=\(self.offeset)&ts=\(timeStamp)&apiKey=\(AppConstants.PUBLIC_KEY)&hash\(self.getApiHash(timeStamp: timeStamp))"
+        let apiUrl = "https://gateway.marvel.com:443/v1/public/comics?limit=20&offset=\(self.offeset)&ts=\(timeStamp)&apikey=\(AppConstants.PUBLIC_KEY)&hash=\(self.getApiHash(timeStamp: timeStamp))"
+        print("URL : \(apiUrl)")
         
         let session = URLSession(configuration: .default)
+        
+        self.isErrorEncountered = false
         
         session.dataTask(with: URL(string: apiUrl)!) { (data, _, err) in
             
             if let error = err {
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.isAlertPresented = true
+                }
+                print("Something went wrong : \(error.localizedDescription)")
                 return
             }
             
             guard let apiData = data else {
+                DispatchQueue.main.async {
+                    self.isAlertPresented = true
+                }
                 print("No comic data found")
                 return
             }
             
+            
             do {
+                DispatchQueue.main.async {
+                    self.isAlertPresented = false
+                }
                 let comics = try JSONDecoder().decode(ComicResults.self, from: apiData)
                 
                 DispatchQueue.main.async {
@@ -129,9 +144,12 @@ class MainViewModel : ObservableObject {
                   
                 }
             } catch {
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.isAlertPresented = true
+                }
+                print("Something went wrong in catch: \(error.localizedDescription)")
             }
-        }
+        }.resume()
     }
     
    private func getApiHash(timeStamp: String) -> String {

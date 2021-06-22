@@ -39,11 +39,11 @@ struct MainView : View {
                 
             ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarTrailing) {
                     Button {
-                        if(mainViewModel.isDarkMode) {
-                            mainViewModel.isDarkMode = false
+                        if(self.mainViewModel.isDarkMode) {
+                            self.mainViewModel.isDarkMode = false
                             return
                         }
-                        mainViewModel.isDarkMode = true
+                        self.mainViewModel.isDarkMode = true
                     } label: {
                         Label("Mode", systemImage: "moon.fill")
                             .labelStyle(IconOnlyLabelStyle())

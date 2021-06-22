@@ -19,7 +19,8 @@ struct CharacterListView: View {
         ZStack {
             if mainViewModel.isCharacterDataLoading {
             
-                    ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .green))
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .green))
                         .scaleEffect(2)
                 
             } else {
@@ -55,6 +56,7 @@ struct CharacterListView: View {
             mainViewModel.fetchCharacters()
             
         } // ZStack END
+
     }
 }
 
