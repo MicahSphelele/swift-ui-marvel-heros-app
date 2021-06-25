@@ -26,6 +26,7 @@
 		B16B5A53264730DD00F7D18C /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A52264730DD00F7D18C /* CharacterListView.swift */; };
 		B16B5A56264732E000F7D18C /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B16B5A55264732E000F7D18C /* SDWebImageSwiftUI */; };
 		B19C10E8264744BB005FC600 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C10E7264744BB005FC600 /* WebView.swift */; };
+		B1B4198A2685CD3800EE2319 /* CharacterCardViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B419892685CD3800EE2319 /* CharacterCardViewItem.swift */; };
 		B1B8162F2658022300344D18 /* ComicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8162E2658022300344D18 /* ComicListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		B16B5A4F264714FE00F7D18C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B16B5A52264730DD00F7D18C /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		B19C10E7264744BB005FC600 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		B1B419892685CD3800EE2319 /* CharacterCardViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCardViewItem.swift; sourceTree = "<group>"; };
 		B1B8162E2658022300344D18 /* ComicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 			children = (
 				B16B5A52264730DD00F7D18C /* CharacterListView.swift */,
 				B1580A7E2662D138009F2C4F /* SingleCharacterView.swift */,
+				B1B419892685CD3800EE2319 /* CharacterCardViewItem.swift */,
 			);
 			path = Character;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				B16B5A3A264701DD00F7D18C /* AppConstants.swift in Sources */,
 				B16B5A4A2647134300F7D18C /* ComicData.swift in Sources */,
 				B1B8162F2658022300344D18 /* ComicListView.swift in Sources */,
+				B1B4198A2685CD3800EE2319 /* CharacterCardViewItem.swift in Sources */,
 				B16B5A53264730DD00F7D18C /* CharacterListView.swift in Sources */,
 				B16B5A252647019500F7D18C /* AppDelegate.swift in Sources */,
 				B16B5A4D2647142D00F7D18C /* ComicResults.swift in Sources */,

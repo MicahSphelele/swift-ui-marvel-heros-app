@@ -71,8 +71,14 @@ struct ComicListView: View {
     }
 }
 
+#if DEBUG
 struct ComicListView_Previews: PreviewProvider {
     static var previews: some View {
+        
+        let mainViewModel : MainViewModel = MainViewModel()
+        
         ComicListView()
+            .environmentObject(mainViewModel)
     }
 }
+#endif

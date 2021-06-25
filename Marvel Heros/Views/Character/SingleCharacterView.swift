@@ -82,7 +82,6 @@ struct SingleCharacterView: View {
                                 .labelStyle(IconOnlyLabelStyle())
                         })
                 }
-                
             }
         })
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
@@ -90,11 +89,33 @@ struct SingleCharacterView: View {
     }
 }
 
+#if DEBUG
 struct SingleCharacterView_Previews: PreviewProvider {
 
     static var previews: some View {
 
-        //SingleCharacterView(character: character)
-        MainView()
+        GeometryReader { geometryReader in
+            
+            let character = Character(id: 1011334, name: "3-D Man", modified: "2014-04-29T14:18:17-0400", description: "This is a description", thumbnail: ["path": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784","extension": "jpg"], urls: [["type" : "detail","url" : "http://marvel.com/characters/74/3-d_man?utm_campaign=apiRef&utm_source=0d82abc8a51e71632327a4e415e734d1"], ["type" : "wiki","url" :"http://marvel.com/universe/3-D_Man_(Chandler)?utm_campaign=apiRef&utm_source=0d82abc8a51e71632327a4e415e734d1"], ["type" : "comiclink","url" :"http://marvel.com/comics/characters/1011334/3-d_man?utm_campaign=apiRef&utm_source=0d82abc8a51e71632327a4e415e734d1"]])
+            
+            SingleCharacterView(character: character, geometryProxy: geometryReader).toolbar(content: {
+                ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                    
+                    let link =  URL(string: character.urls[0]["url"] ?? "")!
+                    
+                    let linkType = character.urls[0]["type"]?.capitalized
+                    
+                    if(linkType == "Detail") {
+                        NavigationLink(
+                            destination: WebView(url: link),
+                            label: {
+                                Label("Mode", systemImage: "info.circle.fill")
+                                    .labelStyle(IconOnlyLabelStyle())
+                            })
+                    }
+                }
+            })
+        }
     }
 }
+#endif
