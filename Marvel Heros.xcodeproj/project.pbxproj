@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B102FE4C27F17274003E90C7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B102FE4B27F17274003E90C7 /* Extensions.swift */; };
+		B102FE4F27F1737F003E90C7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B102FE4E27F1737F003E90C7 /* NetworkError.swift */; };
 		B119A9432681A37A00ED5041 /* ComicCardViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119A9422681A37A00ED5041 /* ComicCardViewItem.swift */; };
 		B1580A7F2662D138009F2C4F /* SingleCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1580A7E2662D138009F2C4F /* SingleCharacterView.swift */; };
 		B16B5A252647019500F7D18C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B5A242647019500F7D18C /* AppDelegate.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B102FE4B27F17274003E90C7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B102FE4E27F1737F003E90C7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		B119A9422681A37A00ED5041 /* ComicCardViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCardViewItem.swift; sourceTree = "<group>"; };
 		B1580A7E2662D138009F2C4F /* SingleCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCharacterView.swift; sourceTree = "<group>"; };
 		B16B5A212647019500F7D18C /* Marvel Heros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Heros.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +71,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B102FE4A27F171FE003E90C7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B102FE4B27F17274003E90C7 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B102FE4D27F1735C003E90C7 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				B102FE4E27F1737F003E90C7 /* NetworkError.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		B16B5A182647019500F7D18C = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +106,8 @@
 		B16B5A232647019500F7D18C /* Marvel Heros */ = {
 			isa = PBXGroup;
 			children = (
+				B102FE4D27F1735C003E90C7 /* Enums */,
+				B102FE4A27F171FE003E90C7 /* Extensions */,
 				B16B5A4E264714E000F7D18C /* Views */,
 				B16B5A3E264707B500F7D18C /* Models */,
 				B16B5A3B2647038500F7D18C /* ViewModels */,
@@ -268,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1580A7F2662D138009F2C4F /* SingleCharacterView.swift in Sources */,
+				B102FE4C27F17274003E90C7 /* Extensions.swift in Sources */,
 				B16B5A4526470EA200F7D18C /* CharacterResults.swift in Sources */,
 				B119A9432681A37A00ED5041 /* ComicCardViewItem.swift in Sources */,
 				B16B5A4326470D7100F7D18C /* CharacterData.swift in Sources */,
@@ -284,6 +307,7 @@
 				B16B5A50264714FE00F7D18C /* MainView.swift in Sources */,
 				B16B5A482647122000F7D18C /* Comic.swift in Sources */,
 				B19C10E8264744BB005FC600 /* WebView.swift in Sources */,
+				B102FE4F27F1737F003E90C7 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

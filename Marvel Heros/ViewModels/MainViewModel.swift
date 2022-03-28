@@ -107,11 +107,25 @@ class MainViewModel : ObservableObject {
     func fetchComics() {
         let timeStamp = String(Date().timeIntervalSince1970)
         let apiUrl = "https://gateway.marvel.com:443/v1/public/comics?limit=20&offset=\(self.offeset)&ts=\(timeStamp)&apikey=\(AppConstants.PUBLIC_KEY)&hash=\(self.getApiHash(timeStamp: timeStamp))"
-        print("URL : \(apiUrl)")
         
-        let session = URLSession(configuration: .default)
+        let url = URL(string: apiUrl)
         
         self.isErrorEncountered = false
+        self.isAlertPresented = false
+        
+        URLSession.shared.request(url: url, expecting: ComicResults.self) { [weak self] result in
+            
+            switch result {
+            case .success(let comics) :
+                self?.fectchedComics.append(contentsOf: comics.data.results)
+            case .failure(let error) :
+                self?.isAlertPresented = true
+                print("Error getting comics: \(error)")
+            }
+            
+        }
+        
+       /* let session = URLSession(configuration: .default)
         
         session.dataTask(with: URL(string: apiUrl)!) { (data, _, err) in
             
@@ -149,7 +163,7 @@ class MainViewModel : ObservableObject {
                 }
                 print("Something went wrong in catch: \(error.localizedDescription)")
             }
-        }.resume()
+        }.resume()*/
     }
     
    private func getApiHash(timeStamp: String) -> String {
