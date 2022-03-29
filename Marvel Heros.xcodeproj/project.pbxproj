@@ -30,6 +30,8 @@
 		B19C10E8264744BB005FC600 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C10E7264744BB005FC600 /* WebView.swift */; };
 		B1B4198A2685CD3800EE2319 /* CharacterCardViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B419892685CD3800EE2319 /* CharacterCardViewItem.swift */; };
 		B1B8162F2658022300344D18 /* ComicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8162E2658022300344D18 /* ComicListView.swift */; };
+		B1CFFEA927F308290064D7F4 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = B1CFFEA827F308290064D7F4 /* Swinject */; };
+		B1CFFEAB27F308290064D7F4 /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B1CFFEAA27F308290064D7F4 /* Swinject-Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +66,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CFFEAB27F308290064D7F4 /* Swinject-Dynamic in Frameworks */,
 				B16B5A56264732E000F7D18C /* SDWebImageSwiftUI in Frameworks */,
+				B1CFFEA927F308290064D7F4 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +235,8 @@
 			name = "Marvel Heros";
 			packageProductDependencies = (
 				B16B5A55264732E000F7D18C /* SDWebImageSwiftUI */,
+				B1CFFEA827F308290064D7F4 /* Swinject */,
+				B1CFFEAA27F308290064D7F4 /* Swinject-Dynamic */,
 			);
 			productName = "Marvel Heros";
 			productReference = B16B5A212647019500F7D18C /* Marvel Heros.app */;
@@ -261,6 +267,7 @@
 			mainGroup = B16B5A182647019500F7D18C;
 			packageReferences = (
 				B16B5A54264732E000F7D18C /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				B1CFFEA727F308290064D7F4 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = B16B5A222647019500F7D18C /* Products */;
 			projectDirPath = "";
@@ -519,6 +526,14 @@
 				minimumVersion = 2.0.2;
 			};
 		};
+		B1CFFEA727F308290064D7F4 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -526,6 +541,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B16B5A54264732E000F7D18C /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		B1CFFEA827F308290064D7F4 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CFFEA727F308290064D7F4 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		B1CFFEAA27F308290064D7F4 /* Swinject-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1CFFEA727F308290064D7F4 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = "Swinject-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
